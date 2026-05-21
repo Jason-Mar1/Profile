@@ -1,0 +1,444 @@
+<!DOCTYPE html>
+<html lang="en" data-lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Hao-Yuan Ma - Academic Homepage</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Noto+Sans+SC:wght@300;400;500;700&display=swap" rel="stylesheet">
+  <style>
+:root{--primary:#c75c5c;--primary-light:#f5e6e6;--primary-lighter:#fdf2f2;--primary-dark:#a04545;--bg:#faf8f6;--bg-white:#fff;--bg-alt:#fdf2f0;--text:#2d2d2d;--text-secondary:#666;--text-light:#999;--border:#f0e8e5;--border-light:#f5efed;--shadow:0 2px 12px rgba(199,92,92,.08);--shadow-hover:0 4px 20px rgba(199,92,92,.15);--radius:16px;--radius-sm:10px;--radius-xs:6px;--font-sans:'Inter','Noto Sans SC',-apple-system,BlinkMacSystemFont,sans-serif;--max-width:1200px;--header-height:64px}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;scroll-padding-top:calc(var(--header-height) + 20px)}
+body{font-family:var(--font-sans);background:var(--bg);color:var(--text);line-height:1.7;font-size:15px;-webkit-font-smoothing:antialiased}
+a{color:var(--primary);text-decoration:none;transition:color .2s}a:hover{color:var(--primary-dark)}
+img{max-width:100%;height:auto}
+.icon{width:1em;height:1em;fill:currentColor;vertical-align:-.15em;flex-shrink:0}
+.svg-defs{position:absolute;width:0;height:0;overflow:hidden}
+.site-header{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(255,255,255,.92);backdrop-filter:blur(12px);border-bottom:1px solid var(--border-light);height:var(--header-height)}
+.header-inner{max-width:var(--max-width);margin:0 auto;padding:0 24px;display:flex;align-items:center;justify-content:space-between;height:100%}
+.site-logo{display:flex;align-items:center;gap:8px;font-weight:600;font-size:15px;color:var(--text)}
+.logo-icon{font-size:20px;color:var(--primary);display:inline-flex}
+.nav-links{display:flex;align-items:center;gap:4px;list-style:none}
+.nav-links a{padding:6px 14px;border-radius:var(--radius-xs);color:var(--text-secondary);font-size:14px;font-weight:500;transition:all .2s}
+.nav-links a:hover,.nav-links a.active{color:var(--primary);background:var(--primary-lighter)}
+.lang-toggle{background:var(--primary);color:#fff;border:none;padding:4px 14px;border-radius:20px;font-size:13px;font-weight:600;cursor:pointer;transition:background .2s;font-family:inherit}
+.lang-toggle:hover{background:var(--primary-dark)}
+.nav-toggle{display:none;flex-direction:column;gap:5px;background:none;border:none;cursor:pointer;padding:4px}
+.nav-toggle span{display:block;width:22px;height:2px;background:var(--text);border-radius:2px;transition:all .3s}
+.main-content{padding-top:var(--header-height)}
+.container{max-width:var(--max-width);margin:0 auto;padding:0 24px}
+.section{padding:60px 0}.section-alt{background:var(--bg-alt)}
+.section-title{font-size:22px;font-weight:700;margin-bottom:32px;color:var(--text);display:flex;align-items:center;gap:10px}
+.section-title .icon{color:var(--primary);font-size:24px}
+.hero-section{padding-top:calc(var(--header-height) + 32px)}
+.hero-grid{display:grid;grid-template-columns:1fr 1fr;gap:32px;align-items:start}
+.profile-card{background:var(--bg-white);border-radius:var(--radius);padding:32px;box-shadow:var(--shadow);border:1px solid var(--border-light)}
+.profile-header{display:flex;gap:24px;margin-bottom:20px}
+.avatar-wrapper{flex-shrink:0}
+.avatar{width:120px;height:120px;border-radius:var(--radius-sm);object-fit:cover;border:3px solid var(--primary-light);background:var(--primary-lighter)}
+.profile-name{font-size:32px;font-weight:700;line-height:1.2;margin-bottom:2px}
+.profile-name-sub{font-size:16px;color:var(--text-secondary);margin-bottom:8px}
+.profile-title{font-size:14px;color:var(--primary);font-weight:500}
+.profile-bio{font-size:13.5px;color:var(--text-secondary);line-height:1.8;margin-bottom:20px}
+.profile-meta{list-style:none;margin-bottom:24px}
+.profile-meta li{display:flex;align-items:center;gap:10px;padding:4px 0;font-size:13.5px;color:var(--text-secondary)}
+.meta-icon{font-size:15px;color:var(--primary);display:inline-flex}
+.profile-links{display:flex;gap:10px;flex-wrap:wrap}
+.btn{display:inline-flex;align-items:center;gap:6px;padding:8px 20px;border-radius:24px;font-size:13px;font-weight:600;transition:all .2s;border:2px solid transparent}
+.btn-primary{background:var(--primary);color:#fff;border-color:var(--primary)}
+.btn-primary:hover{background:var(--primary-dark);border-color:var(--primary-dark);color:#fff}
+.btn-outline{background:transparent;color:var(--text);border-color:var(--border)}
+.btn-outline:hover{border-color:var(--primary);color:var(--primary)}
+.sidebar-content{display:flex;flex-direction:column;gap:24px}
+.sidebar-card{background:var(--bg-white);border-radius:var(--radius);padding:24px;box-shadow:var(--shadow);border:1px solid var(--border-light)}
+.sidebar-title{font-size:16px;font-weight:600;color:var(--primary);margin-bottom:16px;display:flex;align-items:center;gap:8px}
+.research-tags{display:flex;flex-wrap:wrap;gap:10px}
+.research-tag{display:inline-flex;align-items:center;gap:6px;padding:6px 14px;background:var(--primary-lighter);border-radius:20px;font-size:13px;color:var(--text);font-weight:500;border:1px solid var(--primary-light)}
+.tag-icon{font-size:14px;color:var(--primary);display:inline-flex}
+.metrics-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:12px}
+.metric-cell{padding:14px 12px;background:var(--primary-lighter);border-radius:var(--radius-xs);border:1px solid var(--primary-light);text-align:center}
+.metric-num{font-size:22px;font-weight:700;color:var(--primary);line-height:1}
+.metric-label{font-size:11px;color:var(--text-secondary);margin-top:4px;text-transform:uppercase;letter-spacing:.3px}
+.highlight-list{list-style:none}
+.highlight-item{display:flex;align-items:center;gap:12px;padding:12px 8px;border-radius:var(--radius-xs);color:var(--text);transition:all .2s;border-bottom:1px solid var(--border-light)}
+.highlight-list li:last-child .highlight-item{border-bottom:none}
+.highlight-item:hover{background:var(--primary-lighter);color:var(--primary)}
+.highlight-icon{font-size:18px;flex-shrink:0;color:var(--primary);display:inline-flex}
+.highlight-text{flex:1;font-size:14px;font-weight:500}
+.highlight-arrow{font-size:18px;color:var(--text-light);transition:transform .2s;display:inline-flex}
+.highlight-item:hover .highlight-arrow{transform:translateX(3px);color:var(--primary)}
+.publications-list{display:flex;flex-direction:column;gap:16px}
+.pub-item{display:flex;gap:20px;background:var(--bg-white);border-radius:var(--radius-sm);padding:20px 24px;border:1px solid var(--border-light);transition:all .2s}
+.pub-item:hover{box-shadow:var(--shadow-hover);transform:translateY(-1px)}
+.pub-highlight{border-left:3px solid var(--primary)}
+.pub-year{font-size:14px;font-weight:700;color:var(--primary);flex-shrink:0;padding-top:2px;min-width:44px}
+.pub-content{flex:1;min-width:0}
+.pub-title{font-size:15px;font-weight:600;margin-bottom:4px;line-height:1.4}
+.pub-authors{font-size:13px;color:var(--text-secondary);margin-bottom:6px}
+.pub-venue{font-size:13px;color:var(--text-light);display:flex;align-items:center;gap:8px;margin-bottom:8px;flex-wrap:wrap}
+.venue-badge{display:inline-flex;align-items:center;padding:1px 8px;border-radius:4px;font-size:11px;font-weight:600;text-transform:uppercase;letter-spacing:.3px}
+.badge-conf{background:var(--primary-lighter);color:var(--primary)}
+.badge-journal{background:#e8f5e9;color:#2e7d32}
+.badge-preprint{background:#fff4e0;color:#b07000}
+.pub-cite{font-size:12px;color:var(--text-light);margin-left:auto}
+.pub-cite strong{color:var(--primary);font-weight:600}
+.pub-links{display:flex;gap:12px}
+.pub-link{font-size:12px;font-weight:500;color:var(--primary);padding:2px 0;display:inline-flex;align-items:center;gap:4px}
+.pub-link:hover{text-decoration:underline}
+.news-list{display:flex;flex-direction:column}
+.news-item{display:flex;align-items:baseline;gap:16px;padding:14px 0;border-bottom:1px solid var(--border-light)}
+.news-item:last-child{border-bottom:none}
+.news-date{font-size:13px;font-weight:600;color:var(--primary);flex-shrink:0;min-width:80px}
+.news-content{font-size:14px;color:var(--text);display:flex;align-items:center;gap:8px;flex-wrap:wrap}
+.news-content .icon{color:var(--primary)}
+.hobbies-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:16px}
+.hobby-card{display:flex;flex-direction:column;align-items:center;gap:10px;padding:24px 16px;background:var(--bg-white);border-radius:var(--radius-sm);border:1px solid var(--border-light);transition:all .2s}
+.hobby-card:hover{box-shadow:var(--shadow-hover);transform:translateY(-2px);border-color:var(--primary-light)}
+.hobby-icon{font-size:32px;color:var(--primary);display:inline-flex}
+.hobby-label{font-size:14px;font-weight:600;color:var(--text)}
+.hobby-desc{font-size:12px;color:var(--text-light);text-align:center;line-height:1.5}
+.contact-section{text-align:center}
+.contact-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:20px;max-width:700px;margin:0 auto}
+.contact-card{display:flex;flex-direction:column;align-items:center;gap:8px;padding:24px 16px;background:var(--bg-white);border-radius:var(--radius-sm);border:1px solid var(--border-light);color:var(--text);transition:all .2s}
+.contact-card:hover{box-shadow:var(--shadow-hover);transform:translateY(-2px);color:var(--primary);border-color:var(--primary-light)}
+.contact-icon{font-size:28px;color:var(--primary);display:inline-flex}
+.contact-label{font-size:12px;font-weight:600;color:var(--text-light);text-transform:uppercase;letter-spacing:.5px}
+.contact-value{font-size:13px;color:var(--text-secondary);word-break:break-all}
+.site-footer{padding:24px 0;text-align:center;border-top:1px solid var(--border-light)}
+.footer-inner{max-width:var(--max-width);margin:0 auto;padding:0 24px}
+.site-footer p{font-size:13px;color:var(--text-light)}
+@media(max-width:900px){.hero-grid{grid-template-columns:1fr}.profile-header{flex-direction:column;align-items:center;text-align:center}.profile-bio{text-align:center}.profile-meta{display:flex;flex-wrap:wrap;justify-content:center;gap:4px 16px}.profile-links{justify-content:center}}
+@media(max-width:768px){:root{--header-height:56px}.nav-toggle{display:flex}.nav-links{display:none;position:absolute;top:var(--header-height);left:0;right:0;background:rgba(255,255,255,.98);backdrop-filter:blur(12px);flex-direction:column;padding:16px 24px;border-bottom:1px solid var(--border-light);box-shadow:var(--shadow)}.nav-links.open{display:flex}.nav-links li{width:100%}.nav-links a{display:block;padding:10px 0}.section{padding:40px 0}.hero-section{padding-top:76px}.profile-card{padding:24px}.avatar{width:90px;height:90px}.profile-name{font-size:26px}.pub-item{flex-direction:column;gap:4px}.contact-grid{grid-template-columns:1fr}.logo-text{font-size:13px}}
+@media(max-width:480px){.container{padding:0 16px}.profile-card{padding:20px}.profile-links{flex-direction:column;align-items:center}.btn{width:100%;justify-content:center}.metrics-grid{grid-template-columns:repeat(2,1fr)}}
+  </style>
+</head>
+<body>
+
+<svg class="svg-defs" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <symbol id="i-cap" viewBox="0 0 24 24"><path d="M12 3 1 9l11 6 9-4.91V17h2V9L12 3zm0 13.18L4.62 12 3 11.13v.01L12 16l9-4.91L12 16.18zM5 13.18v4L12 21l7-3.82v-4L12 17l-7-3.82z"/></symbol>
+    <symbol id="i-building" viewBox="0 0 24 24"><path d="M12 7V3H2v18h20V7H12zM6 19H4v-2h2v2zm0-4H4v-2h2v2zm0-4H4V9h2v2zm0-4H4V5h2v2zm4 12H8v-2h2v2zm0-4H8v-2h2v2zm0-4H8V9h2v2zm0-4H8V5h2v2zm10 12h-8v-2h2v-2h-2v-2h2v-2h-2V9h8v10zm-2-8h-2v2h2v-2zm0 4h-2v2h2v-2z"/></symbol>
+    <symbol id="i-briefcase" viewBox="0 0 24 24"><path d="M20 6h-4V4c0-1.11-.89-2-2-2h-4c-1.11 0-2 .89-2 2v2H4c-1.11 0-1.99.89-1.99 2L2 19c0 1.11.89 2 2 2h16c1.11 0 2-.89 2-2V8c0-1.11-.89-2-2-2zm-6 0h-4V4h4v2z"/></symbol>
+    <symbol id="i-pin" viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5a2.5 2.5 0 0 1 0-5 2.5 2.5 0 0 1 0 5z"/></symbol>
+    <symbol id="i-users" viewBox="0 0 24 24"><path d="M16 11c1.66 0 2.99-1.34 2.99-3S17.66 5 16 5c-1.66 0-3 1.34-3 3s1.34 3 3 3zm-8 0c1.66 0 2.99-1.34 2.99-3S9.66 5 8 5C6.34 5 5 6.34 5 8s1.34 3 3 3zm0 2c-2.33 0-7 1.17-7 3.5V19h14v-2.5c0-2.33-4.67-3.5-7-3.5zm8 0c-.29 0-.62.02-.97.05 1.16.84 1.97 1.97 1.97 3.45V19h6v-2.5c0-2.33-4.67-3.5-7-3.5z"/></symbol>
+    <symbol id="i-cpu" viewBox="0 0 24 24"><path d="M9 2h2v3h2V2h2v3h2v2h3v2h-3v2h3v2h-3v2h3v2h-3v2h-2v3h-2v-3h-2v3h-2v-3H7v3H5v-3H2v-2h3v-2H2v-2h3v-2H2V9h3V7H2V5h3V2h2v3h2V2zm-2 7v6h10V9H7zm2 2h6v2H9v-2z"/></symbol>
+    <symbol id="i-bolt" viewBox="0 0 24 24"><path d="M7 2v11h3v9l7-12h-4l3-8H7z"/></symbol>
+    <symbol id="i-eye" viewBox="0 0 24 24"><path d="M12 4.5C7 4.5 2.73 7.61 1 12c1.73 4.39 6 7.5 11 7.5s9.27-3.11 11-7.5c-1.73-4.39-6-7.5-11-7.5zM12 17a5 5 0 1 1 0-10 5 5 0 0 1 0 10zm0-8a3 3 0 1 0 0 6 3 3 0 0 0 0-6z"/></symbol>
+    <symbol id="i-hash" viewBox="0 0 24 24"><path d="M20 7h-4V3h-2v4h-4V3H8v4H4v2h4v4H4v2h4v4h2v-4h4v4h2v-4h4v-2h-4V9h4V7zm-6 6h-4V9h4v4z"/></symbol>
+    <symbol id="i-doc" viewBox="0 0 24 24"><path d="M14 2H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V8l-6-6zm4 18H6V4h7v5h5v11z"/></symbol>
+    <symbol id="i-book" viewBox="0 0 24 24"><path d="M18 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V4a2 2 0 0 0-2-2zM6 4h5v8l-2.5-1.5L6 12V4z"/></symbol>
+    <symbol id="i-mic" viewBox="0 0 24 24"><path d="M12 14c1.66 0 2.99-1.34 2.99-3L15 5c0-1.66-1.34-3-3-3S9 3.34 9 5v6c0 1.66 1.34 3 3 3zm5.3-3c0 3-2.54 5.1-5.3 5.1S6.7 14 6.7 11H5c0 3.41 2.72 6.23 6 6.72V21h2v-3.28c3.28-.48 6-3.3 6-6.72h-1.7z"/></symbol>
+    <symbol id="i-megaphone" viewBox="0 0 24 24"><path d="M18 11v3.18L7 9.46V8h3V6H7V4.82l11-4.72v3.18A4 4 0 0 1 22 7c0 1.86-1.27 3.43-3 3.87V11h-1zm-9-1H7V8.5L4.04 7.24A1 1 0 0 0 3 8.16v3.68a1 1 0 0 0 1.04.92L7 11.5V13a2 2 0 0 0 2 2v6h2v-6a2 2 0 0 0 2-2v-2.04L9 10z"/></symbol>
+    <symbol id="i-dumbbell" viewBox="0 0 24 24"><path d="M20.57 14.86 22 13.43 20.57 12 17 15.57 8.43 7 12 3.43 10.57 2 9.14 3.43 7.71 2 5.57 4.14 4.14 2.71 2.71 4.14l1.43 1.43L2 7.71l1.43 1.43L2 10.57 3.43 12 7 8.43 15.57 17 12 20.57 13.43 22l1.43-1.43L16.29 22l2.14-2.14 1.43 1.43 1.43-1.43-1.43-1.43L22 16.29z"/></symbol>
+    <symbol id="i-wave" viewBox="0 0 24 24"><path d="M3 16.5c1.5 0 1.5-1 3-1s1.5 1 3 1 1.5-1 3-1 1.5 1 3 1 1.5-1 3-1 1.5 1 3 1V18c-1.5 0-1.5 1-3 1s-1.5-1-3-1-1.5 1-3 1-1.5-1-3-1-1.5 1-3 1-1.5-1-3-1v-1.5zm0-5c1.5 0 1.5-1 3-1s1.5 1 3 1 1.5-1 3-1 1.5 1 3 1 1.5-1 3-1 1.5 1 3 1V13c-1.5 0-1.5 1-3 1s-1.5-1-3-1-1.5 1-3 1-1.5-1-3-1-1.5 1-3 1-1.5-1-3-1v-1.5zm0-5c1.5 0 1.5-1 3-1s1.5 1 3 1 1.5-1 3-1 1.5 1 3 1 1.5-1 3-1 1.5 1 3 1V8c-1.5 0-1.5 1-3 1s-1.5-1-3-1-1.5 1-3 1-1.5-1-3-1-1.5 1-3 1-1.5-1-3-1V6.5z"/></symbol>
+    <symbol id="i-plane" viewBox="0 0 24 24"><path d="M21 16v-2l-8-5V3.5a1.5 1.5 0 0 0-3 0V9l-8 5v2l8-2.5V19l-2 1.5V22l3.5-1 3.5 1v-1.5L13 19v-5.5l8 2.5z"/></symbol>
+    <symbol id="i-music" viewBox="0 0 24 24"><path d="M12 3v10.55a4 4 0 1 0 2 3.45V7h4V3h-6z"/></symbol>
+    <symbol id="i-code" viewBox="0 0 24 24"><path d="m9.4 16.6-4.6-4.6 4.6-4.6L8 6l-6 6 6 6 1.4-1.4zm5.2 0 4.6-4.6-4.6-4.6L16 6l6 6-6 6-1.4-1.4z"/></symbol>
+    <symbol id="i-mail" viewBox="0 0 24 24"><path d="M20 4H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2zm0 4-8 5-8-5V6l8 5 8-5v2z"/></symbol>
+    <symbol id="i-globe" viewBox="0 0 24 24"><path d="M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zm6.93 6h-2.95a15.65 15.65 0 0 0-1.38-3.56A8.03 8.03 0 0 1 18.92 8zM12 4.04c.83 1.2 1.48 2.53 1.91 3.96h-3.82c.43-1.43 1.08-2.76 1.91-3.96zM4.26 14C4.1 13.36 4 12.69 4 12s.1-1.36.26-2h3.38c-.08.66-.14 1.32-.14 2s.06 1.34.14 2H4.26zm.82 2h2.95c.32 1.25.78 2.45 1.38 3.56A7.98 7.98 0 0 1 5.08 16zm2.95-8H5.08a7.98 7.98 0 0 1 4.33-3.56A15.65 15.65 0 0 0 8.03 8zM12 19.96c-.83-1.2-1.48-2.53-1.91-3.96h3.82c-.43 1.43-1.08 2.76-1.91 3.96zM14.34 14H9.66c-.09-.66-.16-1.32-.16-2s.07-1.35.16-2h4.68c.09.65.16 1.32.16 2s-.07 1.34-.16 2zm.25 5.56c.6-1.11 1.06-2.31 1.38-3.56h2.95a8.03 8.03 0 0 1-4.33 3.56zM16.36 14c.08-.66.14-1.32.14-2s-.06-1.34-.14-2h3.38c.16.64.26 1.31.26 2s-.1 1.36-.26 2h-3.38z"/></symbol>
+    <symbol id="i-flask" viewBox="0 0 24 24"><path d="M19.8 18.4 14 10.67V6.5l1.35-1.69A1 1 0 0 0 14.57 3H9.43a1 1 0 0 0-.78 1.62L10 6.5v4.17L4.2 18.4A2 2 0 0 0 5.81 21.5h12.38a2 2 0 0 0 1.61-3.1zM7.66 16l3.34-4.44V6h2v5.56L16.34 16H7.66z"/></symbol>
+    <symbol id="i-arrow-right" viewBox="0 0 24 24"><path d="m10 17 5-5-5-5v10z"/></symbol>
+    <symbol id="i-external" viewBox="0 0 24 24"><path d="M19 19H5V5h7V3H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14c1.1 0 2-.9 2-2v-7h-2v7zM14 3v2h3.59l-9.83 9.83 1.41 1.41L19 6.41V10h2V3h-7z"/></symbol>
+  </defs>
+</svg>
+
+<!-- Header -->
+<header class="site-header">
+  <div class="header-inner">
+    <a href="#" class="site-logo">
+      <span class="logo-icon"><svg class="icon"><use href="#i-cap"/></svg></span>
+      <span class="logo-text" data-zh="马浩远 · 学术主页" data-en="Hao-Yuan Ma · Academic Homepage">Hao-Yuan Ma · Academic Homepage</span>
+    </a>
+    <nav class="site-nav">
+      <button class="nav-toggle" aria-label="Toggle navigation"><span></span><span></span><span></span></button>
+      <ul class="nav-links">
+        <li><a href="#about" data-zh="关于" data-en="About">About</a></li>
+        <li><a href="#publications" data-zh="论文" data-en="Publications">Publications</a></li>
+        <li><a href="#news" data-zh="动态" data-en="News">News</a></li>
+        <li><a href="#hobbies" data-zh="爱好" data-en="Hobbies">Hobbies</a></li>
+        <li><a href="#contact" data-zh="联系" data-en="Contact">Contact</a></li>
+        <li><button class="lang-toggle" id="langToggle" aria-label="Switch language">中</button></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<main class="main-content">
+
+<!-- Hero / About -->
+<section id="about" class="section hero-section">
+  <div class="container hero-grid">
+    <div class="profile-card">
+      <div class="profile-header">
+        <div class="avatar-wrapper">
+          <img class="avatar" src="https://scholar.googleusercontent.com/citations?view_op=medium_photo&user=Oeg7nusAAAAJ&citpid=4" alt="Hao-Yuan Ma" referrerpolicy="no-referrer" onerror="this.style.display='none';this.nextElementSibling.style.display='block'">
+          <svg xmlns="http://www.w3.org/2000/svg" width="120" height="120" viewBox="0 0 200 200" class="avatar" style="display:none">
+            <rect width="200" height="200" rx="16" fill="#f5e6e6"/>
+            <circle cx="100" cy="75" r="35" fill="#c75c5c" opacity="0.3"/>
+            <ellipse cx="100" cy="155" rx="50" ry="35" fill="#c75c5c" opacity="0.2"/>
+            <text x="100" y="92" text-anchor="middle" font-family="sans-serif" font-size="36" font-weight="700" fill="#c75c5c">HM</text>
+          </svg>
+        </div>
+        <div class="profile-info">
+          <h1 class="profile-name" data-zh="马浩远" data-en="Hao-Yuan Ma">Hao-Yuan Ma</h1>
+          <p class="profile-name-sub" data-zh="Hao-Yuan Ma" data-en="马浩远">马浩远</p>
+          <p class="profile-title" data-zh="苏州大学 · 计算机科学与技术学院 · 博士研究生" data-en="PhD Student · School of Computer Science and Technology · Soochow University">PhD Student · School of Computer Science and Technology · Soochow University</p>
+        </div>
+      </div>
+      <p class="profile-bio" data-zh="我是苏州大学计算机科学与技术学院的博士研究生。研究方向聚焦目标计数与人群计数、多模态学习、多模态大模型（MLLM）以及线性注意力机制，致力于构建鲁棒、高效的视觉与多模态智能系统，使模型能够更准确地感知、计数并理解复杂场景。已在相关方向发表多篇学术论文，并积极参与开源代码与社区交流。" data-en="I am a PhD student at the School of Computer Science and Technology, Soochow University. My research centers on object &amp; crowd counting, multimodal learning, multimodal large language models (MLLMs), and linear attention. I work toward robust and efficient vision-language systems that can perceive, count, and reason about complex scenes, with several published papers and open-source projects in this area.">I am a PhD student at the School of Computer Science and Technology, Soochow University. My research centers on object &amp; crowd counting, multimodal learning, multimodal large language models (MLLMs), and linear attention. I work toward robust and efficient vision-language systems that can perceive, count, and reason about complex scenes, with several published papers and open-source projects in this area.</p>
+      <ul class="profile-meta">
+        <li><span class="meta-icon"><svg class="icon"><use href="#i-building"/></svg></span><span data-zh="计算机科学与技术学院" data-en="School of Computer Science and Technology">School of Computer Science and Technology</span></li>
+        <li><span class="meta-icon"><svg class="icon"><use href="#i-cap"/></svg></span><span data-zh="苏州大学" data-en="Soochow University">Soochow University</span></li>
+        <li><span class="meta-icon"><svg class="icon"><use href="#i-briefcase"/></svg></span><span data-zh="博士研究生" data-en="PhD Student">PhD Student</span></li>
+        <li><span class="meta-icon"><svg class="icon"><use href="#i-pin"/></svg></span><span data-zh="中国 · 苏州" data-en="Suzhou, China">Suzhou, China</span></li>
+      </ul>
+      <div class="profile-links">
+        <a href="https://scholar.google.com/citations?user=Oeg7nusAAAAJ&hl=en" class="btn btn-primary" target="_blank" rel="noopener"><svg class="icon"><use href="#i-cap"/></svg><span data-zh="谷歌学术" data-en="Google Scholar">Google Scholar</span></a>
+        <a href="https://github.com/Jason-Mar1" class="btn btn-outline" target="_blank" rel="noopener"><svg class="icon"><use href="#i-code"/></svg><span>GitHub</span></a>
+        <a href="#publications" class="btn btn-outline"><svg class="icon"><use href="#i-doc"/></svg><span data-zh="论文列表" data-en="Publications">Publications</span></a>
+      </div>
+    </div>
+
+    <div class="sidebar-content">
+      <div class="sidebar-card">
+        <h3 class="sidebar-title"><svg class="icon"><use href="#i-flask"/></svg><span data-zh="研究方向" data-en="Research Areas">Research Areas</span></h3>
+        <div class="research-tags">
+          <span class="research-tag"><span class="tag-icon"><svg class="icon"><use href="#i-eye"/></svg></span><span data-zh="目标计数" data-en="Object Counting">Object Counting</span></span>
+          <span class="research-tag"><span class="tag-icon"><svg class="icon"><use href="#i-users"/></svg></span><span data-zh="人群计数" data-en="Crowd Counting">Crowd Counting</span></span>
+          <span class="research-tag"><span class="tag-icon"><svg class="icon"><use href="#i-globe"/></svg></span><span data-zh="多模态学习" data-en="Multimodal Learning">Multimodal Learning</span></span>
+          <span class="research-tag"><span class="tag-icon"><svg class="icon"><use href="#i-cpu"/></svg></span><span>MLLM</span></span>
+          <span class="research-tag"><span class="tag-icon"><svg class="icon"><use href="#i-bolt"/></svg></span><span data-zh="线性注意力" data-en="Linear Attention">Linear Attention</span></span>
+        </div>
+      </div>
+      <div class="sidebar-card">
+        <h3 class="sidebar-title"><svg class="icon"><use href="#i-hash"/></svg><span data-zh="学术指标" data-en="Scholar Metrics">Scholar Metrics</span></h3>
+        <div class="metrics-grid">
+          <div class="metric-cell"><div class="metric-num">66</div><div class="metric-label" data-zh="总引用" data-en="Citations">Citations</div></div>
+          <div class="metric-cell"><div class="metric-num">4</div><div class="metric-label">h-index</div></div>
+          <div class="metric-cell"><div class="metric-num">2</div><div class="metric-label">i10-index</div></div>
+          <div class="metric-cell"><div class="metric-num">8</div><div class="metric-label" data-zh="论文" data-en="Papers">Papers</div></div>
+        </div>
+      </div>
+      <div class="sidebar-card">
+        <h3 class="sidebar-title"><svg class="icon"><use href="#i-bolt"/></svg><span data-zh="亮点" data-en="Highlights">Highlights</span></h3>
+        <ul class="highlight-list">
+          <li><a href="#publications" class="highlight-item"><span class="highlight-icon"><svg class="icon"><use href="#i-doc"/></svg></span><span class="highlight-text" data-zh="代表性论文" data-en="Selected Publications">Selected Publications</span><span class="highlight-arrow"><svg class="icon"><use href="#i-arrow-right"/></svg></span></a></li>
+          <li><a href="#news" class="highlight-item"><span class="highlight-icon"><svg class="icon"><use href="#i-megaphone"/></svg></span><span class="highlight-text" data-zh="最新动态" data-en="Latest News">Latest News</span><span class="highlight-arrow"><svg class="icon"><use href="#i-arrow-right"/></svg></span></a></li>
+          <li><a href="#hobbies" class="highlight-item"><span class="highlight-icon"><svg class="icon"><use href="#i-music"/></svg></span><span class="highlight-text" data-zh="兴趣爱好" data-en="Hobbies">Hobbies</span><span class="highlight-arrow"><svg class="icon"><use href="#i-arrow-right"/></svg></span></a></li>
+          <li><a href="https://github.com/Jason-Mar1" target="_blank" rel="noopener" class="highlight-item"><span class="highlight-icon"><svg class="icon"><use href="#i-code"/></svg></span><span class="highlight-text" data-zh="开源代码 (GitHub)" data-en="Open Source (GitHub)">Open Source (GitHub)</span><span class="highlight-arrow"><svg class="icon"><use href="#i-external"/></svg></span></a></li>
+          <li><a href="#contact" class="highlight-item"><span class="highlight-icon"><svg class="icon"><use href="#i-mail"/></svg></span><span class="highlight-text" data-zh="联系方式" data-en="Contact">Contact</span><span class="highlight-arrow"><svg class="icon"><use href="#i-arrow-right"/></svg></span></a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Publications -->
+<section id="publications" class="section">
+  <div class="container">
+    <h2 class="section-title"><svg class="icon"><use href="#i-doc"/></svg><span data-zh="代表性论文" data-en="Selected Publications">Selected Publications</span></h2>
+    <div class="publications-list">
+      <div class="pub-item pub-highlight">
+        <div class="pub-year">2026</div>
+        <div class="pub-content">
+          <h4 class="pub-title">OVID: Open-Vocabulary Object Counting via Multimodal Large Language Models</h4>
+          <p class="pub-authors">H-Y. Ma, et al.</p>
+          <p class="pub-venue"><span class="venue-badge badge-preprint" data-zh="预印本" data-en="Preprint">Preprint</span><span data-zh="多模态大模型 · 开放词汇计数" data-en="MLLM · Open-Vocabulary Counting">MLLM · Open-Vocabulary Counting</span></p>
+          <div class="pub-links"><a href="https://scholar.google.com/citations?user=Oeg7nusAAAAJ&hl=en" target="_blank" rel="noopener" class="pub-link"><svg class="icon"><use href="#i-external"/></svg><span data-zh="学术主页" data-en="Scholar">Scholar</span></a></div>
+        </div>
+      </div>
+      <div class="pub-item pub-highlight">
+        <div class="pub-year">2026</div>
+        <div class="pub-content">
+          <h4 class="pub-title">Linear Cross-Attention for Efficient Vision-Language Modeling</h4>
+          <p class="pub-authors">H-Y. Ma, et al.</p>
+          <p class="pub-venue"><span class="venue-badge badge-preprint" data-zh="预印本" data-en="Preprint">Preprint</span><span data-zh="线性注意力 · 视觉语言模型" data-en="Linear Attention · Vision-Language">Linear Attention · Vision-Language</span></p>
+          <div class="pub-links"><a href="https://scholar.google.com/citations?user=Oeg7nusAAAAJ&hl=en" target="_blank" rel="noopener" class="pub-link"><svg class="icon"><use href="#i-external"/></svg><span data-zh="学术主页" data-en="Scholar">Scholar</span></a></div>
+        </div>
+      </div>
+      <div class="pub-item">
+        <div class="pub-year">2025</div>
+        <div class="pub-content">
+          <h4 class="pub-title">Multi-Class Object Counting with Class-Aware Aggregation</h4>
+          <p class="pub-authors">H-Y. Ma, et al.</p>
+          <p class="pub-venue"><span class="venue-badge badge-conf">Conference</span><span data-zh="多类目标计数" data-en="Multi-Class Counting">Multi-Class Counting</span></p>
+          <div class="pub-links"><a href="https://scholar.google.com/citations?user=Oeg7nusAAAAJ&hl=en" target="_blank" rel="noopener" class="pub-link"><svg class="icon"><use href="#i-external"/></svg><span data-zh="学术主页" data-en="Scholar">Scholar</span></a></div>
+        </div>
+      </div>
+      <div class="pub-item">
+        <div class="pub-year">2025</div>
+        <div class="pub-content">
+          <h4 class="pub-title">Knowledge Filtering for Multimodal Crowd Understanding</h4>
+          <p class="pub-authors">H-Y. Ma, et al.</p>
+          <p class="pub-venue"><span class="venue-badge badge-conf">Conference</span><span data-zh="多模态人群理解" data-en="Multimodal Crowd Understanding">Multimodal Crowd Understanding</span></p>
+          <div class="pub-links"><a href="https://scholar.google.com/citations?user=Oeg7nusAAAAJ&hl=en" target="_blank" rel="noopener" class="pub-link"><svg class="icon"><use href="#i-external"/></svg><span data-zh="学术主页" data-en="Scholar">Scholar</span></a></div>
+        </div>
+      </div>
+      <div class="pub-item pub-highlight">
+        <div class="pub-year">2024</div>
+        <div class="pub-content">
+          <h4 class="pub-title">FGENet: Fine-Grained Extraction Network for Crowd Counting</h4>
+          <p class="pub-authors">H-Y. Ma, et al.</p>
+          <p class="pub-venue"><span class="venue-badge badge-conf">Conference</span><span data-zh="细粒度人群计数" data-en="Fine-Grained Crowd Counting">Fine-Grained Crowd Counting</span><span class="pub-cite"><strong>31</strong> <span data-zh="次引用" data-en="citations">citations</span></span></p>
+          <div class="pub-links"><a href="https://scholar.google.com/citations?user=Oeg7nusAAAAJ&hl=en" target="_blank" rel="noopener" class="pub-link"><svg class="icon"><use href="#i-external"/></svg><span data-zh="学术主页" data-en="Scholar">Scholar</span></a></div>
+        </div>
+      </div>
+      <div class="pub-item pub-highlight">
+        <div class="pub-year">2024</div>
+        <div class="pub-content">
+          <h4 class="pub-title">VMambaCC: Visual Mamba-based Crowd Counting</h4>
+          <p class="pub-authors">H-Y. Ma, et al.</p>
+          <p class="pub-venue"><span class="venue-badge badge-conf">Conference</span><span data-zh="状态空间模型 · 人群计数" data-en="State-Space Model · Crowd Counting">State-Space Model · Crowd Counting</span><span class="pub-cite"><strong>24</strong> <span data-zh="次引用" data-en="citations">citations</span></span></p>
+          <div class="pub-links"><a href="https://scholar.google.com/citations?user=Oeg7nusAAAAJ&hl=en" target="_blank" rel="noopener" class="pub-link"><svg class="icon"><use href="#i-external"/></svg><span data-zh="学术主页" data-en="Scholar">Scholar</span></a></div>
+        </div>
+      </div>
+      <div class="pub-item">
+        <div class="pub-year">2024</div>
+        <div class="pub-content">
+          <h4 class="pub-title">SCU-Counting: Scale-aware Cross-modal Understanding for Counting</h4>
+          <p class="pub-authors">H-Y. Ma, et al.</p>
+          <p class="pub-venue"><span class="venue-badge badge-conf">Conference</span><span data-zh="跨模态尺度感知" data-en="Cross-Modal Scale Awareness">Cross-Modal Scale Awareness</span><span class="pub-cite"><strong>5</strong> <span data-zh="次引用" data-en="citations">citations</span></span></p>
+          <div class="pub-links"><a href="https://scholar.google.com/citations?user=Oeg7nusAAAAJ&hl=en" target="_blank" rel="noopener" class="pub-link"><svg class="icon"><use href="#i-external"/></svg><span data-zh="学术主页" data-en="Scholar">Scholar</span></a></div>
+        </div>
+      </div>
+      <div class="pub-item">
+        <div class="pub-year">2024</div>
+        <div class="pub-content">
+          <h4 class="pub-title">Multi-Head Multi-Scale Attention for Crowd Counting</h4>
+          <p class="pub-authors">H-Y. Ma, et al.</p>
+          <p class="pub-venue"><span class="venue-badge badge-conf">Conference</span><span data-zh="多头多尺度注意力" data-en="Multi-Head Multi-Scale Attention">Multi-Head Multi-Scale Attention</span><span class="pub-cite"><strong>4</strong> <span data-zh="次引用" data-en="citations">citations</span></span></p>
+          <div class="pub-links"><a href="https://scholar.google.com/citations?user=Oeg7nusAAAAJ&hl=en" target="_blank" rel="noopener" class="pub-link"><svg class="icon"><use href="#i-external"/></svg><span data-zh="学术主页" data-en="Scholar">Scholar</span></a></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- News -->
+<section id="news" class="section section-alt">
+  <div class="container">
+    <h2 class="section-title"><svg class="icon"><use href="#i-megaphone"/></svg><span data-zh="最新动态" data-en="News">News</span></h2>
+    <div class="news-list">
+      <div class="news-item"><span class="news-date">2026</span><span class="news-content" data-zh="正在投稿 OVID（多模态大模型开放词汇计数）与线性交叉注意力研究" data-en="Working on OVID (open-vocabulary counting with MLLMs) and linear cross-attention research.">Working on OVID (open-vocabulary counting with MLLMs) and linear cross-attention research.</span></div>
+      <div class="news-item"><span class="news-date">2025</span><span class="news-content" data-zh="多类目标计数与多模态人群理解相关工作进入投稿阶段" data-en="Multi-Class Object Counting and Knowledge Filtering for Multimodal Crowd Understanding submitted.">Multi-Class Object Counting and Knowledge Filtering for Multimodal Crowd Understanding submitted.</span></div>
+      <div class="news-item"><span class="news-date">2024</span><span class="news-content" data-zh="一年内发表 FGENet、VMambaCC、SCU-Counting、Multi-Head Multi-Scale 四项计数相关工作" data-en="Published FGENet, VMambaCC, SCU-Counting and Multi-Head Multi-Scale Attention — four counting works within one year.">Published FGENet, VMambaCC, SCU-Counting and Multi-Head Multi-Scale Attention — four counting works within one year.</span></div>
+      <div class="news-item"><span class="news-date">2024</span><span class="news-content" data-zh="FGENet 累计被引 31 次，VMambaCC 累计被引 24 次" data-en="FGENet reached 31 citations; VMambaCC reached 24 citations.">FGENet reached 31 citations; VMambaCC reached 24 citations.</span></div>
+      <div class="news-item"><span class="news-date">2022</span><span class="news-content" data-zh="进入苏州大学计算机科学与技术学院攻读博士学位" data-en="Started PhD at the School of Computer Science and Technology, Soochow University.">Started PhD at the School of Computer Science and Technology, Soochow University.</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- Hobbies -->
+<section id="hobbies" class="section">
+  <div class="container">
+    <h2 class="section-title"><svg class="icon"><use href="#i-music"/></svg><span data-zh="兴趣爱好" data-en="Hobbies">Hobbies</span></h2>
+    <div class="hobbies-grid">
+      <div class="hobby-card">
+        <span class="hobby-icon"><svg class="icon"><use href="#i-dumbbell"/></svg></span>
+        <span class="hobby-label" data-zh="健身" data-en="Fitness">Fitness</span>
+        <span class="hobby-desc" data-zh="规律训练，调节科研节奏" data-en="A regular routine to balance research life">A regular routine to balance research life</span>
+      </div>
+      <div class="hobby-card">
+        <span class="hobby-icon"><svg class="icon"><use href="#i-wave"/></svg></span>
+        <span class="hobby-label" data-zh="游泳" data-en="Swimming">Swimming</span>
+        <span class="hobby-desc" data-zh="在水中放松大脑、找回专注" data-en="Reset focus in the water">Reset focus in the water</span>
+      </div>
+      <div class="hobby-card">
+        <span class="hobby-icon"><svg class="icon"><use href="#i-mic"/></svg></span>
+        <span class="hobby-label" data-zh="唱歌" data-en="Singing">Singing</span>
+        <span class="hobby-desc" data-zh="K歌爱好者" data-en="A karaoke regular">A karaoke regular</span>
+      </div>
+      <div class="hobby-card">
+        <span class="hobby-icon"><svg class="icon"><use href="#i-book"/></svg></span>
+        <span class="hobby-label" data-zh="阅读" data-en="Reading">Reading</span>
+        <span class="hobby-desc" data-zh="文学、科普与人物传记" data-en="Literature, popular science and biographies">Literature, popular science and biographies</span>
+      </div>
+      <div class="hobby-card">
+        <span class="hobby-icon"><svg class="icon"><use href="#i-plane"/></svg></span>
+        <span class="hobby-label" data-zh="旅行" data-en="Travel">Travel</span>
+        <span class="hobby-desc" data-zh="探索不同城市与风景" data-en="Exploring new cities and landscapes">Exploring new cities and landscapes</span>
+      </div>
+      <div class="hobby-card">
+        <span class="hobby-icon"><svg class="icon"><use href="#i-music"/></svg></span>
+        <span class="hobby-label" data-zh="演唱会" data-en="Live Concerts">Live Concerts</span>
+        <span class="hobby-desc" data-zh="享受现场音乐的能量" data-en="Soaking up live music energy">Soaking up live music energy</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Contact -->
+<section id="contact" class="section section-alt">
+  <div class="container contact-section">
+    <h2 class="section-title" style="justify-content:center"><svg class="icon"><use href="#i-mail"/></svg><span data-zh="联系方式" data-en="Contact">Contact</span></h2>
+    <div class="contact-grid">
+      <a href="mailto:20224227066@stu.suda.edu.cn" class="contact-card">
+        <span class="contact-icon"><svg class="icon"><use href="#i-mail"/></svg></span>
+        <span class="contact-label">Email</span>
+        <span class="contact-value">20224227066@stu.suda.edu.cn</span>
+      </a>
+      <a href="https://scholar.google.com/citations?user=Oeg7nusAAAAJ&hl=en" class="contact-card" target="_blank" rel="noopener">
+        <span class="contact-icon"><svg class="icon"><use href="#i-cap"/></svg></span>
+        <span class="contact-label">Google Scholar</span>
+        <span class="contact-value" data-zh="学术主页" data-en="Profile">Profile</span>
+      </a>
+      <a href="https://github.com/Jason-Mar1" class="contact-card" target="_blank" rel="noopener">
+        <span class="contact-icon"><svg class="icon"><use href="#i-code"/></svg></span>
+        <span class="contact-label">GitHub</span>
+        <span class="contact-value">Jason-Mar1</span>
+      </a>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="footer-inner">
+    <p data-zh="© 2026 马浩远 (Hao-Yuan Ma) · 苏州大学" data-en="© 2026 Hao-Yuan Ma · Soochow University">© 2026 Hao-Yuan Ma · Soochow University</p>
+  </div>
+</footer>
+
+<script>
+(function(){
+  var STORAGE_KEY='preferred-lang';
+  var langBtn=document.getElementById('langToggle');
+  function applyLang(lang){
+    document.documentElement.setAttribute('data-lang',lang);
+    document.documentElement.setAttribute('lang',lang==='zh'?'zh-CN':'en');
+    document.title=lang==='zh'?'马浩远 (Hao-Yuan Ma) - 学术主页':'Hao-Yuan Ma - Academic Homepage';
+    langBtn.textContent=lang==='zh'?'EN':'中';
+    document.querySelectorAll('[data-zh][data-en]').forEach(function(el){
+      var val=el.getAttribute('data-'+lang);
+      if(val!==null && val!=='') el.textContent=val;
+    });
+    try{localStorage.setItem(STORAGE_KEY,lang);}catch(e){}
+  }
+  var saved=null;
+  try{saved=localStorage.getItem(STORAGE_KEY);}catch(e){}
+  applyLang(saved==='zh'||saved==='en'?saved:'en');
+  langBtn.addEventListener('click',function(){
+    var cur=document.documentElement.getAttribute('data-lang')||'en';
+    applyLang(cur==='zh'?'en':'zh');
+  });
+  var navToggle=document.querySelector('.nav-toggle');
+  var navLinks=document.querySelector('.nav-links');
+  navToggle.addEventListener('click',function(){navLinks.classList.toggle('open');});
+  navLinks.querySelectorAll('a').forEach(function(link){link.addEventListener('click',function(){navLinks.classList.remove('open');});});
+  var sections=document.querySelectorAll('section[id]');
+  var navItems=document.querySelectorAll('.nav-links a[href^="#"]');
+  function onScroll(){
+    var scrollPos=window.scrollY+100;
+    sections.forEach(function(section){
+      var top=section.offsetTop;var height=section.offsetHeight;var id=section.getAttribute('id');
+      if(scrollPos>=top&&scrollPos<top+height){navItems.forEach(function(a){a.classList.remove('active');if(a.getAttribute('href')==='#'+id)a.classList.add('active');});}
+    });
+  }
+  window.addEventListener('scroll',onScroll,{passive:true});
+  onScroll();
+})();
+</script>
+</body>
+</html>
