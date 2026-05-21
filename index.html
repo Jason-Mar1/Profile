@@ -1,0 +1,527 @@
+<!DOCTYPE html>
+<html lang="en" data-lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Hao-Yuan Ma - Academic Homepage</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Noto+Sans+SC:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+  <style>
+:root{
+  --primary:#1a3a5c;
+  --primary-light:#2c5282;
+  --primary-lighter:#e8eef6;
+  --primary-bg:#f0f4f8;
+  --accent:#1a56db;
+  --accent-light:#dbeafe;
+  --bg:#f7f8fa;
+  --bg-white:#fff;
+  --text:#1a202c;
+  --text-secondary:#4a5568;
+  --text-light:#718096;
+  --border:#e2e8f0;
+  --border-light:#edf2f7;
+  --shadow:0 1px 3px rgba(0,0,0,.06),0 1px 2px rgba(0,0,0,.04);
+  --shadow-md:0 4px 14px rgba(0,0,0,.08);
+  --shadow-lg:0 10px 30px rgba(0,0,0,.1);
+  --radius:12px;
+  --radius-sm:8px;
+  --radius-xs:6px;
+  --font:'Inter','Noto Sans SC',-apple-system,BlinkMacSystemFont,sans-serif;
+  --max-width:1100px;
+  --header-h:60px;
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;scroll-padding-top:24px}
+body{font-family:var(--font);background:var(--bg);color:var(--text);line-height:1.7;font-size:15px;-webkit-font-smoothing:antialiased}
+a{color:var(--accent);text-decoration:none;transition:color .2s}
+a:hover{color:var(--primary)}
+img{max-width:100%;height:auto}
+
+/* ===== Icon system ===== */
+.icon{width:1em;height:1em;display:inline-block;vertical-align:-.15em;flex-shrink:0;stroke:currentColor;fill:none;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+
+/* ===== Header ===== */
+.header{position:relative;top:0;left:0;right:0;z-index:100;background:var(--primary);height:var(--header-h)}
+.header-inner{max-width:var(--max-width);margin:0 auto;padding:0 24px;display:flex;align-items:center;justify-content:space-between;height:100%}
+.header-name{font-size:18px;font-weight:800;color:#fff;letter-spacing:-.5px}
+.header-right{display:flex;align-items:center;gap:14px}
+.header-nav{display:flex;align-items:center;gap:2px;list-style:none}
+.header-nav a{padding:6px 14px;border-radius:var(--radius-xs);color:rgba(255,255,255,.75);font-size:14px;font-weight:500;transition:all .2s}
+.header-nav a:hover,.header-nav a.active{color:#fff;background:rgba(255,255,255,.12)}
+.nav-toggle{display:none;flex-direction:column;gap:5px;background:none;border:none;cursor:pointer;padding:4px}
+.nav-toggle span{display:block;width:20px;height:2px;background:#fff;border-radius:2px}
+
+/* ===== Lang toggle ===== */
+.lang-toggle{display:inline-flex;background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.15);border-radius:999px;padding:3px}
+.lang-toggle button{background:none;border:none;color:rgba(255,255,255,.7);font-size:12.5px;font-weight:700;padding:4px 12px;border-radius:999px;cursor:pointer;transition:all .15s;font-family:inherit;letter-spacing:.3px}
+.lang-toggle button.active{background:#fff;color:var(--primary)}
+.lang-toggle button:hover:not(.active){color:#fff}
+
+/* ===== Hero ===== */
+.hero{padding:56px 0;background:linear-gradient(135deg,#1a3a5c 0%,#2c5282 60%,#3b6ba5 100%);color:#fff;position:relative;overflow:hidden}
+.hero::before{content:'';position:absolute;top:0;right:0;bottom:0;width:45%;background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 400'%3E%3Crect fill='%23ffffff' fill-opacity='0.03' width='400' height='400'/%3E%3Ccircle cx='300' cy='100' r='120' fill='%23ffffff' fill-opacity='0.04'/%3E%3Ccircle cx='350' cy='300' r='80' fill='%23ffffff' fill-opacity='0.03'/%3E%3C/svg%3E") no-repeat center;background-size:cover;opacity:.5}
+.hero-inner{max-width:var(--max-width);margin:0 auto;padding:0 24px;display:grid;grid-template-columns:1fr 340px;gap:48px;align-items:center;position:relative;z-index:1}
+.hero-title{font-size:42px;font-weight:900;line-height:1.15;margin-bottom:8px;letter-spacing:-1px}
+.hero-subtitle{font-size:18px;font-weight:400;opacity:.85;margin-bottom:20px}
+.hero-desc{font-size:14.5px;line-height:1.8;opacity:.8;margin-bottom:28px;max-width:520px}
+.hero-btns{display:flex;gap:12px;margin-bottom:0;flex-wrap:wrap}
+.btn{display:inline-flex;align-items:center;gap:8px;padding:10px 24px;border-radius:var(--radius-sm);font-size:14px;font-weight:600;transition:all .2s;border:2px solid transparent;cursor:pointer}
+.btn .icon{width:16px;height:16px}
+.btn-white{background:#fff;color:var(--primary);border-color:#fff}
+.btn-white:hover{background:transparent;color:#fff;border-color:#fff}
+.btn-ghost{background:transparent;color:#fff;border-color:rgba(255,255,255,.4)}
+.btn-ghost:hover{border-color:#fff;background:rgba(255,255,255,.1)}
+
+/* Hero right card */
+.hero-card{background:rgba(255,255,255,.12);backdrop-filter:blur(16px);border:1px solid rgba(255,255,255,.15);border-radius:var(--radius);padding:28px;text-align:center}
+.hero-avatar{width:140px;height:140px;border-radius:var(--radius-sm);object-fit:cover;border:3px solid rgba(255,255,255,.3);margin-bottom:20px;background:rgba(255,255,255,.1);display:block;margin-left:auto;margin-right:auto}
+.hero-meta{list-style:none;text-align:left}
+.hero-meta li{display:flex;align-items:center;gap:10px;padding:10px 0;font-size:13.5px;opacity:.9;border-bottom:1px solid rgba(255,255,255,.1)}
+.hero-meta li:last-child{border-bottom:none}
+.hero-meta-icon{width:18px;height:18px;display:inline-flex;align-items:center;justify-content:center;flex-shrink:0;opacity:.85}
+.hero-meta-icon .icon{width:18px;height:18px}
+
+/* ===== Sections ===== */
+.section{padding:64px 0}
+.section-inner{max-width:var(--max-width);margin:0 auto;padding:0 24px}
+.section-title{font-size:24px;font-weight:800;color:var(--primary);margin-bottom:32px;letter-spacing:-.5px;display:flex;align-items:center;gap:12px}
+.section-title::before{content:'';width:4px;height:28px;background:var(--accent);border-radius:2px;flex-shrink:0}
+.section-divider{border:none;border-top:1px solid var(--border);margin:0}
+
+/* ===== About ===== */
+.about-grid{display:grid;grid-template-columns:1fr 1fr;gap:40px}
+.about-text{font-size:14.5px;color:var(--text-secondary);line-height:1.9}
+.about-text p+p{margin-top:12px}
+.interest-title{font-size:17px;font-weight:700;color:var(--primary);margin-bottom:16px}
+.interest-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.interest-tag{display:flex;align-items:center;gap:10px;padding:12px 16px;background:var(--primary-lighter);border-radius:var(--radius-sm);font-size:13.5px;font-weight:500;color:var(--primary);transition:all .2s}
+.interest-tag:hover{background:var(--accent-light);transform:translateY(-1px)}
+.interest-icon{display:inline-flex;align-items:center;justify-content:center;color:var(--accent);flex-shrink:0}
+.interest-icon .icon{width:16px;height:16px}
+
+/* ===== Projects ===== */
+.projects-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.project-card{background:var(--bg-white);border-radius:var(--radius);padding:28px 24px;border:1px solid var(--border-light);transition:all .25s;position:relative;overflow:hidden}
+.project-card:hover{box-shadow:var(--shadow-md);transform:translateY(-2px)}
+.project-icon{width:48px;height:48px;border-radius:var(--radius-sm);display:flex;align-items:center;justify-content:center;margin-bottom:16px}
+.project-icon .icon{width:24px;height:24px;stroke-width:1.7}
+.project-icon-blue{background:var(--primary-lighter);color:var(--primary)}
+.project-icon-green{background:#e6f9f0;color:#0d9f6e}
+.project-icon-purple{background:#f0e6ff;color:#7c3aed}
+.project-name{font-size:15px;font-weight:700;color:var(--text);margin-bottom:8px;line-height:1.4}
+.project-desc{font-size:13px;color:var(--text-light);line-height:1.7;margin-bottom:16px}
+.project-link{font-size:13px;font-weight:600;color:var(--accent);display:inline-flex;align-items:center;gap:4px}
+.project-link:hover{gap:8px}
+
+/* ===== Publications ===== */
+.pub-stats{display:flex;gap:16px;margin-bottom:32px;flex-wrap:wrap}
+.stat-badge{flex:1;min-width:140px;background:linear-gradient(135deg,var(--primary-lighter),#fff);border:1px solid var(--border-light);border-radius:var(--radius);padding:20px 16px;text-align:center}
+.stat-num{display:block;font-size:30px;font-weight:900;color:var(--primary);line-height:1;margin-bottom:6px}
+.stat-label{display:block;font-size:11.5px;color:var(--text-secondary);font-weight:700;text-transform:uppercase;letter-spacing:.6px}
+.pub-list{list-style:none;display:flex;flex-direction:column;gap:14px}
+.pub-item{display:grid;grid-template-columns:64px 1fr 88px;gap:20px;padding:20px 22px;background:var(--bg-white);border:1px solid var(--border-light);border-radius:var(--radius);transition:all .25s;align-items:center}
+.pub-item:hover{box-shadow:var(--shadow-md);transform:translateY(-1px);border-color:var(--primary-lighter)}
+.pub-year{font-size:22px;font-weight:800;color:var(--accent);text-align:center;letter-spacing:-.5px}
+.pub-content{min-width:0}
+.pub-title{font-size:15px;font-weight:700;color:var(--text);line-height:1.5;margin-bottom:6px}
+.pub-title a{color:inherit}
+.pub-title a:hover{color:var(--accent)}
+.pub-authors{font-size:12.5px;color:var(--text-secondary);margin-bottom:3px}
+.pub-authors .self{color:var(--primary);font-weight:700}
+.pub-venue{font-size:12.5px;color:var(--text-light);font-style:italic}
+.pub-cites{text-align:center;font-size:11px;color:var(--text-light);text-transform:uppercase;letter-spacing:.5px;font-weight:600}
+.pub-cites strong{display:block;font-size:20px;font-weight:800;color:var(--primary);font-style:normal;margin-bottom:2px}
+.pubs-cta{text-align:center;margin-top:32px}
+.pubs-cta a{display:inline-flex;align-items:center;gap:8px;padding:12px 28px;background:var(--primary);color:#fff;border-radius:var(--radius-sm);font-size:14px;font-weight:600;transition:all .2s}
+.pubs-cta a:hover{background:var(--accent);color:#fff;transform:translateY(-1px)}
+.pubs-cta a .icon{width:18px;height:18px}
+
+/* ===== Hobbies ===== */
+.hobbies-grid{display:grid;grid-template-columns:repeat(6,1fr);gap:16px}
+.hobby-card{background:var(--bg-white);border:1px solid var(--border-light);border-radius:var(--radius);padding:24px 12px;text-align:center;transition:all .25s;cursor:default;color:var(--accent)}
+.hobby-card:hover{box-shadow:var(--shadow-md);transform:translateY(-3px);border-color:var(--accent)}
+.hobby-icon{display:flex;justify-content:center;margin-bottom:12px}
+.hobby-icon .icon{width:32px;height:32px;stroke-width:1.6}
+.hobby-name{font-size:13.5px;font-weight:600;color:var(--text);display:block}
+
+/* ===== Contact ===== */
+.contact-section{background:var(--primary);color:#fff;padding:64px 0;position:relative;overflow:hidden}
+.contact-section::before{content:'';position:absolute;right:-60px;top:-60px;width:300px;height:300px;border-radius:50%;border:1px dashed rgba(255,255,255,.12)}
+.contact-section::after{content:'';position:absolute;right:40px;bottom:-40px;width:200px;height:200px;border-radius:50%;border:1px dashed rgba(255,255,255,.08)}
+.contact-inner{max-width:var(--max-width);margin:0 auto;padding:0 24px;position:relative;z-index:1}
+.contact-title{font-size:28px;font-weight:800;margin-bottom:12px}
+.contact-desc{font-size:14.5px;opacity:.8;margin-bottom:24px}
+.contact-links{display:flex;gap:12px;flex-wrap:wrap}
+.contact-link{display:inline-flex;align-items:center;gap:10px;padding:12px 24px;background:rgba(255,255,255,.15);border:1px solid rgba(255,255,255,.25);border-radius:var(--radius-sm);font-size:14px;font-weight:600;color:#fff;transition:all .2s}
+.contact-link:hover{background:rgba(255,255,255,.25);color:#fff;transform:translateY(-1px)}
+.contact-link .icon{width:16px;height:16px}
+
+/* ===== Footer ===== */
+.footer{padding:20px 0;text-align:center;border-top:1px solid var(--border);background:var(--bg-white)}
+.footer-inner{max-width:var(--max-width);margin:0 auto;padding:0 24px}
+.footer p{font-size:12.5px;color:var(--text-light)}
+
+/* ===== Responsive ===== */
+@media(max-width:900px){
+  .hero-inner{grid-template-columns:1fr;text-align:center}
+  .hero-desc{max-width:100%}
+  .hero-btns{justify-content:center}
+  .hero-card{max-width:360px;margin:0 auto}
+  .hero-meta{text-align:left}
+  .about-grid{grid-template-columns:1fr}
+  .projects-grid{grid-template-columns:1fr}
+  .hobbies-grid{grid-template-columns:repeat(3,1fr)}
+  .pub-item{grid-template-columns:56px 1fr 72px;gap:14px;padding:16px 18px}
+}
+@media(max-width:768px){
+  :root{--header-h:52px}
+  .nav-toggle{display:flex}
+  .nav-toggle span{display:block;width:20px;height:2px;background:#fff;border-radius:2px}
+  .header-nav{display:none;position:absolute;top:var(--header-h);left:0;right:0;background:var(--primary);flex-direction:column;padding:12px 24px;border-top:1px solid rgba(255,255,255,.1);box-shadow:var(--shadow)}
+  .header-nav.open{display:flex}
+  .header-nav li{width:100%}
+  .header-nav a{display:block;padding:10px 0}
+  .hero-title{font-size:30px}
+  .hero-subtitle{font-size:16px}
+  .section{padding:48px 0}
+  .section-title{font-size:20px}
+  .projects-grid{grid-template-columns:1fr}
+  .interest-grid{grid-template-columns:1fr}
+  .hobbies-grid{grid-template-columns:repeat(2,1fr)}
+  .pub-item{grid-template-columns:1fr;text-align:left;gap:8px}
+  .pub-year{text-align:left;font-size:18px}
+  .pub-cites{text-align:left;display:flex;align-items:baseline;gap:8px}
+  .pub-cites strong{display:inline;font-size:16px}
+  .pub-stats{gap:10px}
+  .stat-badge{min-width:calc(50% - 5px);padding:14px 10px}
+  .stat-num{font-size:24px}
+}
+  </style>
+</head>
+<body>
+
+<!-- SVG icon sprite -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <defs>
+    <symbol id="i-building" viewBox="0 0 24 24"><path d="M2 22h20M3 22V10l9-6 9 6v12M6 22V13m4 9V13m4 9V13m4 9V13M9 7h6"/></symbol>
+    <symbol id="i-cap" viewBox="0 0 24 24"><path d="M12 3 1 9l11 6 9-4.91V17"/><path d="M5 13.18v4L12 21l7-3.82v-4"/></symbol>
+    <symbol id="i-flask" viewBox="0 0 24 24"><path d="M9 2h6"/><path d="M10 2v6.382a4 4 0 0 1-.553 2.024L4 20h16l-5.447-9.594A4 4 0 0 1 14 8.382V2"/></symbol>
+    <symbol id="i-mail" viewBox="0 0 24 24"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 6-10 7L2 6"/></symbol>
+    <symbol id="i-hash" viewBox="0 0 24 24"><path d="M4 9h16M4 15h16M10 3 8 21M16 3l-2 18"/></symbol>
+    <symbol id="i-users" viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></symbol>
+    <symbol id="i-globe" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M2 12h20"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></symbol>
+    <symbol id="i-cpu" viewBox="0 0 24 24"><rect x="4" y="4" width="16" height="16" rx="2"/><rect x="9" y="9" width="6" height="6"/><path d="M9 1v3M15 1v3M9 20v3M15 20v3M20 9h3M20 14h3M1 9h3M1 14h3"/></symbol>
+    <symbol id="i-bolt" viewBox="0 0 24 24"><path d="M13 2 3 14h9l-1 8 10-12h-9l1-8z"/></symbol>
+    <symbol id="i-eye" viewBox="0 0 24 24"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></symbol>
+    <symbol id="i-book" viewBox="0 0 24 24"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></symbol>
+    <symbol id="i-dumbbell" viewBox="0 0 24 24"><path d="M6.5 6.5 17.5 17.5"/><path d="m21 21-1-1M3 3l1 1M18 22l4-4M2 6l4-4M3 10l7-7M14 21l7-7"/></symbol>
+    <symbol id="i-wave" viewBox="0 0 24 24"><path d="M2 12c2 0 2-2 4-2s2 2 4 2 2-2 4-2 2 2 4 2 2-2 4-2"/><path d="M2 17c2 0 2-2 4-2s2 2 4 2 2-2 4-2 2 2 4 2 2-2 4-2"/><path d="M2 7c2 0 2-2 4-2s2 2 4 2 2-2 4-2 2 2 4 2 2-2 4-2"/></symbol>
+    <symbol id="i-mic" viewBox="0 0 24 24"><rect x="9" y="2" width="6" height="12" rx="3"/><path d="M19 10v2a7 7 0 0 1-14 0v-2"/><path d="M12 19v3M8 22h8"/></symbol>
+    <symbol id="i-plane" viewBox="0 0 24 24"><path d="M21 16v-2l-8-5V3.5a1.5 1.5 0 0 0-3 0V9l-8 5v2l8-2.5V19l-2 1.5V22l3.5-1L15 22v-1.5L13 19v-5.5l8 2.5z"/></symbol>
+    <symbol id="i-music" viewBox="0 0 24 24"><path d="M9 18V5l12-2v13"/><circle cx="6" cy="18" r="3"/><circle cx="18" cy="16" r="3"/></symbol>
+    <symbol id="i-code" viewBox="0 0 24 24"><path d="m16 18 6-6-6-6M8 6l-6 6 6 6"/></symbol>
+    <symbol id="i-arrow-right" viewBox="0 0 24 24"><path d="M5 12h14M13 5l7 7-7 7"/></symbol>
+    <symbol id="i-external" viewBox="0 0 24 24"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><path d="M15 3h6v6"/><path d="M10 14 21 3"/></symbol>
+  </defs>
+</svg>
+
+<!-- Header -->
+<header class="header">
+  <div class="header-inner">
+    <a href="#" class="header-name" data-zh="马浩远" data-en="Hao-Yuan Ma">Hao-Yuan Ma</a>
+    <div class="header-right">
+      <div class="lang-toggle" role="group" aria-label="Language switch">
+        <button type="button" data-lang="en" class="active">EN</button>
+        <button type="button" data-lang="zh">中</button>
+      </div>
+      <nav>
+        <button class="nav-toggle" aria-label="Toggle navigation"><span></span><span></span><span></span></button>
+        <ul class="header-nav">
+          <li><a href="#about" data-zh="关于我" data-en="About">About</a></li>
+          <li><a href="#projects" data-zh="研究方向" data-en="Research">Research</a></li>
+          <li><a href="#publications" data-zh="论文发表" data-en="Publications">Publications</a></li>
+          <li><a href="#hobbies" data-zh="爱好" data-en="Hobbies">Hobbies</a></li>
+          <li><a href="#contact" data-zh="联系我" data-en="Contact">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+  </div>
+</header>
+
+<!-- Hero -->
+<section class="hero">
+  <div class="hero-inner">
+    <div class="hero-left">
+      <h1 class="hero-title" data-zh="马浩远" data-en="Hao-Yuan Ma">Hao-Yuan Ma</h1>
+      <p class="hero-subtitle" data-zh="苏州大学计算机科学与技术学院 · 博士生" data-en="PhD Student · School of Computer Science and Technology, Soochow University">PhD Student · School of Computer Science and Technology, Soochow University</p>
+      <p class="hero-desc" data-zh="我的研究聚焦于目标计数与人群计数、多模态学习、多模态大模型（MLLM）以及线性注意力机制，致力于探索高效且可扩展的视觉与多模态智能模型，推动其在真实场景中的可靠应用。" data-en="My research focuses on object counting, crowd counting, multimodal learning, multimodal large language models (MLLM), and linear attention mechanisms, aiming to build efficient and scalable visual and multimodal intelligence for real-world applications.">My research focuses on object counting, crowd counting, multimodal learning, multimodal large language models (MLLM), and linear attention mechanisms, aiming to build efficient and scalable visual and multimodal intelligence for real-world applications.</p>
+      <div class="hero-btns">
+        <a href="https://scholar.google.com/citations?user=Oeg7nusAAAAJ&hl=en" target="_blank" rel="noopener" class="btn btn-white"><svg class="icon"><use href="#i-cap"/></svg> <span data-zh="谷歌学术" data-en="Google Scholar">Google Scholar</span></a>
+        <a href="#contact" class="btn btn-ghost"><svg class="icon"><use href="#i-mail"/></svg> <span data-zh="联系我" data-en="Contact Me">Contact Me</span></a>
+      </div>
+    </div>
+    <div class="hero-card">
+      <img src="https://scholar.googleusercontent.com/citations?view_op=medium_photo&user=Oeg7nusAAAAJ&citpid=4" alt="Hao-Yuan Ma" class="hero-avatar" referrerpolicy="no-referrer">
+      <ul class="hero-meta">
+        <li><span class="hero-meta-icon"><svg class="icon"><use href="#i-building"/></svg></span> <span data-zh="苏州大学 · 计算机科学与技术学院" data-en="Soochow University · School of CS&T">Soochow University · School of CS&T</span></li>
+        <li><span class="hero-meta-icon"><svg class="icon"><use href="#i-cap"/></svg></span> <span data-zh="博士研究生" data-en="PhD Student">PhD Student</span></li>
+        <li><span class="hero-meta-icon"><svg class="icon"><use href="#i-flask"/></svg></span> <span data-zh="多模态与视觉计数" data-en="Multimodal & Visual Counting">Multimodal & Visual Counting</span></li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<hr class="section-divider">
+
+<!-- About -->
+<section id="about" class="section">
+  <div class="section-inner">
+    <h2 class="section-title" data-zh="关于我" data-en="About Me">About Me</h2>
+    <div class="about-grid">
+      <div class="about-text">
+        <p data-zh="我目前在苏州大学计算机科学与技术学院攻读博士学位，研究方向为计算机视觉与多模态学习。我关注如何在密集场景下实现可靠的目标与人群计数，以及如何借助多模态大模型（MLLM）和线性注意力机制，构建更高效、更具泛化能力的视觉理解系统。" data-en="I am currently pursuing my PhD at the School of Computer Science and Technology, Soochow University. My research lies in computer vision and multimodal learning, focusing on reliable object and crowd counting in dense scenes, and on building efficient, generalizable visual understanding systems with multimodal large language models (MLLM) and linear attention mechanisms.">I am currently pursuing my PhD at the School of Computer Science and Technology, Soochow University. My research lies in computer vision and multimodal learning, focusing on reliable object and crowd counting in dense scenes, and on building efficient, generalizable visual understanding systems with multimodal large language models (MLLM) and linear attention mechanisms.</p>
+        <p data-zh="我对将视觉感知任务与大模型推理能力结合充满兴趣，希望通过算法设计与系统优化，让模型在保持准确率的同时大幅降低计算开销。欢迎对相关方向感兴趣的同学与同行交流合作。" data-en="I am particularly interested in combining visual perception tasks with the reasoning capability of large models. Through algorithm design and system-level optimization, I aim to substantially reduce computational cost while preserving accuracy. Collaborations and discussions are warmly welcomed.">I am particularly interested in combining visual perception tasks with the reasoning capability of large models. Through algorithm design and system-level optimization, I aim to substantially reduce computational cost while preserving accuracy. Collaborations and discussions are warmly welcomed.</p>
+      </div>
+      <div>
+        <h3 class="interest-title" data-zh="研究兴趣" data-en="Research Interests">Research Interests</h3>
+        <div class="interest-grid">
+          <div class="interest-tag"><span class="interest-icon"><svg class="icon"><use href="#i-hash"/></svg></span> <span data-zh="目标计数" data-en="Object Counting">Object Counting</span></div>
+          <div class="interest-tag"><span class="interest-icon"><svg class="icon"><use href="#i-users"/></svg></span> <span data-zh="人群计数" data-en="Crowd Counting">Crowd Counting</span></div>
+          <div class="interest-tag"><span class="interest-icon"><svg class="icon"><use href="#i-globe"/></svg></span> <span data-zh="多模态学习" data-en="Multimodal">Multimodal</span></div>
+          <div class="interest-tag"><span class="interest-icon"><svg class="icon"><use href="#i-cpu"/></svg></span> <span data-zh="多模态大模型" data-en="MLLM">MLLM</span></div>
+          <div class="interest-tag"><span class="interest-icon"><svg class="icon"><use href="#i-bolt"/></svg></span> <span data-zh="线性注意力" data-en="Linear Attention">Linear Attention</span></div>
+          <div class="interest-tag"><span class="interest-icon"><svg class="icon"><use href="#i-eye"/></svg></span> <span data-zh="计算机视觉" data-en="Computer Vision">Computer Vision</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<hr class="section-divider">
+
+<!-- Projects -->
+<section id="projects" class="section">
+  <div class="section-inner">
+    <h2 class="section-title" data-zh="研究方向" data-en="Research Directions">Research Directions</h2>
+    <div class="projects-grid">
+      <div class="project-card">
+        <div class="project-icon project-icon-blue"><svg class="icon"><use href="#i-users"/></svg></div>
+        <h4 class="project-name" data-zh="目标计数与人群计数" data-en="Object & Crowd Counting">Object & Crowd Counting</h4>
+        <p class="project-desc" data-zh="探索密集场景下的目标计数与人群计数方法，关注尺度变化、遮挡与跨域泛化等挑战。" data-en="Exploring counting methods for dense scenes, focusing on scale variation, occlusion, and cross-domain generalization.">Exploring counting methods for dense scenes, focusing on scale variation, occlusion, and cross-domain generalization.</p>
+        <a href="#publications" class="project-link"><span data-zh="相关论文" data-en="Related papers">Related papers</span> <svg class="icon"><use href="#i-arrow-right"/></svg></a>
+      </div>
+      <div class="project-card">
+        <div class="project-icon project-icon-purple"><svg class="icon"><use href="#i-cpu"/></svg></div>
+        <h4 class="project-name" data-zh="多模态与多模态大模型" data-en="Multimodal & MLLM">Multimodal & MLLM</h4>
+        <p class="project-desc" data-zh="研究多模态对齐与多模态大模型（MLLM）在视觉理解、视觉计数等任务中的应用与优化。" data-en="Studying multimodal alignment and the application of MLLMs in visual understanding and counting tasks.">Studying multimodal alignment and the application of MLLMs in visual understanding and counting tasks.</p>
+        <a href="#publications" class="project-link"><span data-zh="相关论文" data-en="Related papers">Related papers</span> <svg class="icon"><use href="#i-arrow-right"/></svg></a>
+      </div>
+      <div class="project-card">
+        <div class="project-icon project-icon-green"><svg class="icon"><use href="#i-bolt"/></svg></div>
+        <h4 class="project-name" data-zh="线性注意力机制" data-en="Linear Attention">Linear Attention</h4>
+        <p class="project-desc" data-zh="研究高效的线性注意力机制，在大幅降低计算复杂度的同时，保持模型的表达能力与精度。" data-en="Investigating efficient linear attention mechanisms that reduce computational complexity while preserving expressiveness.">Investigating efficient linear attention mechanisms that reduce computational complexity while preserving expressiveness.</p>
+        <a href="#publications" class="project-link"><span data-zh="相关论文" data-en="Related papers">Related papers</span> <svg class="icon"><use href="#i-arrow-right"/></svg></a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<hr class="section-divider">
+
+<!-- Publications -->
+<section id="publications" class="section">
+  <div class="section-inner">
+    <h2 class="section-title" data-zh="论文发表" data-en="Publications">Publications</h2>
+
+    <div class="pub-stats">
+      <div class="stat-badge"><span class="stat-num">66</span><span class="stat-label" data-zh="总引用" data-en="Citations">Citations</span></div>
+      <div class="stat-badge"><span class="stat-num">4</span><span class="stat-label">h-index</span></div>
+      <div class="stat-badge"><span class="stat-num">2</span><span class="stat-label">i10-index</span></div>
+      <div class="stat-badge"><span class="stat-num">8</span><span class="stat-label" data-zh="论文" data-en="Papers">Papers</span></div>
+    </div>
+
+    <ol class="pub-list">
+
+      <li class="pub-item">
+        <div class="pub-year">2026</div>
+        <div class="pub-content">
+          <h4 class="pub-title"><a href="https://scholar.google.com/citations?view_op=view_citation&hl=en&user=Oeg7nusAAAAJ&citation_for_view=Oeg7nusAAAAJ:IjCSPb-OGe4C" target="_blank" rel="noopener">OVID: Text-Guided Open-Vocabulary Dense Object Counting and Localization</a></h4>
+          <p class="pub-authors"><span class="self">HY Ma</span>, L Zhang, M Qiang</p>
+          <p class="pub-venue">ICASSP 2026 — IEEE International Conference on Acoustics, Speech and Signal Processing</p>
+        </div>
+        <div class="pub-cites"><strong>—</strong><span data-zh="即将发表" data-en="In press">In press</span></div>
+      </li>
+
+      <li class="pub-item">
+        <div class="pub-year">2026</div>
+        <div class="pub-content">
+          <h4 class="pub-title"><a href="https://scholar.google.com/citations?view_op=view_citation&hl=en&user=Oeg7nusAAAAJ&citation_for_view=Oeg7nusAAAAJ:zYLM7Y9cAGgC" target="_blank" rel="noopener">Linear Cross-Attention Guided Feature Pyramid Networks for Crowd Counting</a></h4>
+          <p class="pub-authors"><span class="self">HY Ma</span>, L Zhang, S Shi</p>
+          <p class="pub-venue">ICASSP 2026 — IEEE International Conference on Acoustics, Speech and Signal Processing</p>
+        </div>
+        <div class="pub-cites"><strong>—</strong><span data-zh="即将发表" data-en="In press">In press</span></div>
+      </li>
+
+      <li class="pub-item">
+        <div class="pub-year">2025</div>
+        <div class="pub-content">
+          <h4 class="pub-title"><a href="https://scholar.google.com/citations?view_op=view_citation&hl=en&user=Oeg7nusAAAAJ&citation_for_view=Oeg7nusAAAAJ:2osOgNQ5qMEC" target="_blank" rel="noopener">Multi-Class Object Counting Network With Adaptive Class Alignment Loss for Remote Sensing Images</a></h4>
+          <p class="pub-authors">Z Zhu, L Zhang, <span class="self">HY Ma</span>, XY Wei, Y Zhang</p>
+          <p class="pub-venue">IEEE Signal Processing Letters, Vol. 33, 16–20</p>
+        </div>
+        <div class="pub-cites"><strong>—</strong><span data-zh="引用" data-en="Cites">Cites</span></div>
+      </li>
+
+      <li class="pub-item">
+        <div class="pub-year">2025</div>
+        <div class="pub-content">
+          <h4 class="pub-title"><a href="https://scholar.google.com/citations?view_op=view_citation&hl=en&user=Oeg7nusAAAAJ&citation_for_view=Oeg7nusAAAAJ:qjMakFHDy7sC" target="_blank" rel="noopener">Exploring Knowledge Filtering for Retrieval-Augmented Discriminative Tasks</a></h4>
+          <p class="pub-authors">M Qiang, Z Wang, X Bao, <span class="self">H Ma</span>, S Li, G Zhou</p>
+          <p class="pub-venue">Findings of the Association for Computational Linguistics: ACL 2025, 1716–1729</p>
+        </div>
+        <div class="pub-cites"><strong>2</strong><span data-zh="引用" data-en="Cites">Cites</span></div>
+      </li>
+
+      <li class="pub-item">
+        <div class="pub-year">2024</div>
+        <div class="pub-content">
+          <h4 class="pub-title"><a href="https://scholar.google.com/citations?view_op=view_citation&hl=en&user=Oeg7nusAAAAJ&citation_for_view=Oeg7nusAAAAJ:d1gkVwhDpl0C" target="_blank" rel="noopener">FGENet: Fine-Grained Extraction Network for Congested Crowd Counting</a></h4>
+          <p class="pub-authors"><span class="self">HY Ma</span>, L Zhang, XY Wei</p>
+          <p class="pub-venue">International Conference on Multimedia Modeling (MMM), 43–56</p>
+        </div>
+        <div class="pub-cites"><strong>31</strong><span data-zh="引用" data-en="Cites">Cites</span></div>
+      </li>
+
+      <li class="pub-item">
+        <div class="pub-year">2024</div>
+        <div class="pub-content">
+          <h4 class="pub-title"><a href="https://scholar.google.com/citations?view_op=view_citation&hl=en&user=Oeg7nusAAAAJ&citation_for_view=Oeg7nusAAAAJ:9yKSN-GCB0IC" target="_blank" rel="noopener">VMambaCC: A Visual State Space Model for Crowd Counting</a></h4>
+          <p class="pub-authors"><span class="self">HY Ma</span>, L Zhang, S Shi</p>
+          <p class="pub-venue">arXiv preprint arXiv:2405.03978</p>
+        </div>
+        <div class="pub-cites"><strong>24</strong><span data-zh="引用" data-en="Cites">Cites</span></div>
+      </li>
+
+      <li class="pub-item">
+        <div class="pub-year">2024</div>
+        <div class="pub-content">
+          <h4 class="pub-title"><a href="https://scholar.google.com/citations?view_op=view_citation&hl=en&user=Oeg7nusAAAAJ&citation_for_view=Oeg7nusAAAAJ:u5HHmVD_uO8C" target="_blank" rel="noopener">SCU-Counting: A Large-Scale Benchmark Dataset for Multi-Class Object Counting</a></h4>
+          <p class="pub-authors">XY Wei, L Zhang, <span class="self">HY Ma</span>, XF Zhang</p>
+          <p class="pub-venue">Transportation Research Part C: Emerging Technologies, Vol. 163, 104608</p>
+        </div>
+        <div class="pub-cites"><strong>5</strong><span data-zh="引用" data-en="Cites">Cites</span></div>
+      </li>
+
+      <li class="pub-item">
+        <div class="pub-year">2024</div>
+        <div class="pub-content">
+          <h4 class="pub-title"><a href="https://scholar.google.com/citations?view_op=view_citation&hl=en&user=Oeg7nusAAAAJ&citation_for_view=Oeg7nusAAAAJ:u-x6o8ySG0sC" target="_blank" rel="noopener">Multi-Head Multi-Scale Pixel Localization Network for Crowd Counting with Highly Dense and Small-Scale Samples</a></h4>
+          <p class="pub-authors"><span class="self">HY Ma</span>, L Zhang</p>
+          <p class="pub-venue">2024 IEEE International Conference on Multimedia and Expo (ICME), 1–5</p>
+        </div>
+        <div class="pub-cites"><strong>4</strong><span data-zh="引用" data-en="Cites">Cites</span></div>
+      </li>
+
+    </ol>
+
+    <div class="pubs-cta">
+      <a href="https://scholar.google.com/citations?user=Oeg7nusAAAAJ&hl=en" target="_blank" rel="noopener"><svg class="icon"><use href="#i-book"/></svg> <span data-zh="在 Google Scholar 查看完整列表" data-en="View Full List on Google Scholar">View Full List on Google Scholar</span> <svg class="icon"><use href="#i-external"/></svg></a>
+    </div>
+  </div>
+</section>
+
+<hr class="section-divider">
+
+<!-- Hobbies -->
+<section id="hobbies" class="section">
+  <div class="section-inner">
+    <h2 class="section-title" data-zh="爱好" data-en="Hobbies">Hobbies</h2>
+    <div class="hobbies-grid">
+      <div class="hobby-card"><span class="hobby-icon"><svg class="icon"><use href="#i-dumbbell"/></svg></span><span class="hobby-name" data-zh="健身" data-en="Fitness">Fitness</span></div>
+      <div class="hobby-card"><span class="hobby-icon"><svg class="icon"><use href="#i-wave"/></svg></span><span class="hobby-name" data-zh="游泳" data-en="Swimming">Swimming</span></div>
+      <div class="hobby-card"><span class="hobby-icon"><svg class="icon"><use href="#i-mic"/></svg></span><span class="hobby-name" data-zh="唱歌" data-en="Singing">Singing</span></div>
+      <div class="hobby-card"><span class="hobby-icon"><svg class="icon"><use href="#i-book"/></svg></span><span class="hobby-name" data-zh="阅读" data-en="Reading">Reading</span></div>
+      <div class="hobby-card"><span class="hobby-icon"><svg class="icon"><use href="#i-plane"/></svg></span><span class="hobby-name" data-zh="旅行" data-en="Travel">Travel</span></div>
+      <div class="hobby-card"><span class="hobby-icon"><svg class="icon"><use href="#i-music"/></svg></span><span class="hobby-name" data-zh="演唱会" data-en="Concerts">Concerts</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- Contact -->
+<section id="contact" class="contact-section">
+  <div class="contact-inner">
+    <h2 class="contact-title" data-zh="联系我" data-en="Contact Me">Contact Me</h2>
+    <p class="contact-desc" data-zh="欢迎就研究合作、学术讨论与项目交流等事宜与我联系。" data-en="Feel free to reach out for research collaborations, academic discussions and project exchanges.">Feel free to reach out for research collaborations, academic discussions and project exchanges.</p>
+    <div class="contact-links">
+      <a href="mailto:20224227066@stu.suda.edu.cn" class="contact-link"><svg class="icon"><use href="#i-mail"/></svg> <span>20224227066@stu.suda.edu.cn</span></a>
+      <a href="https://scholar.google.com/citations?user=Oeg7nusAAAAJ&hl=en" target="_blank" rel="noopener" class="contact-link"><svg class="icon"><use href="#i-cap"/></svg> <span>Google Scholar</span></a>
+      <a href="https://github.com/Jason-Mar1" target="_blank" rel="noopener" class="contact-link"><svg class="icon"><use href="#i-code"/></svg> <span>GitHub · Jason-Mar1</span></a>
+    </div>
+  </div>
+</section>
+
+<!-- Footer -->
+<footer class="footer">
+  <div class="footer-inner">
+    <p data-zh="© 2026 马浩远 (Hao-Yuan Ma) · 苏州大学计算机科学与技术学院" data-en="© 2026 Hao-Yuan Ma · School of CS&T, Soochow University">© 2026 Hao-Yuan Ma · School of CS&T, Soochow University</p>
+  </div>
+</footer>
+
+<script>
+(function(){
+  // ----- Language switching -----
+  var STORAGE_KEY='preferred-lang';
+  var langButtons=document.querySelectorAll('.lang-toggle button');
+  var translatable=document.querySelectorAll('[data-zh][data-en], [data-en]');
+  function applyLang(lang){
+    document.documentElement.setAttribute('data-lang',lang);
+    document.documentElement.setAttribute('lang',lang==='zh'?'zh-CN':'en');
+    document.title=lang==='zh'?'马浩远 (Hao-Yuan Ma) - 学术主页':'Hao-Yuan Ma - Academic Homepage';
+    translatable.forEach(function(el){
+      var val=el.getAttribute('data-'+lang);
+      if(val!==null && val!=='') el.textContent=val;
+    });
+    langButtons.forEach(function(b){
+      b.classList.toggle('active',b.getAttribute('data-lang')===lang);
+    });
+    try{localStorage.setItem(STORAGE_KEY,lang);}catch(e){}
+  }
+  langButtons.forEach(function(b){
+    b.addEventListener('click',function(){applyLang(b.getAttribute('data-lang'));});
+  });
+  // Initial language: stored preference or default 'en'
+  var saved=null;
+  try{saved=localStorage.getItem(STORAGE_KEY);}catch(e){}
+  applyLang(saved==='zh'||saved==='en'?saved:'en');
+
+  // ----- Mobile nav toggle -----
+  var navToggle=document.querySelector('.nav-toggle');
+  var navLinks=document.querySelector('.header-nav');
+  navToggle.addEventListener('click',function(){navLinks.classList.toggle('open');});
+  navLinks.querySelectorAll('a').forEach(function(link){
+    link.addEventListener('click',function(){navLinks.classList.remove('open');});
+  });
+
+  // ----- Scroll active section highlight -----
+  var sections=document.querySelectorAll('section[id]');
+  var navItems=document.querySelectorAll('.header-nav a[href^="#"]');
+  function onScroll(){
+    var scrollPos=window.scrollY+80;
+    sections.forEach(function(section){
+      var top=section.offsetTop;var h=section.offsetHeight;var id=section.getAttribute('id');
+      if(scrollPos>=top&&scrollPos<top+h){
+        navItems.forEach(function(a){
+          a.classList.remove('active');
+          if(a.getAttribute('href')==='#'+id) a.classList.add('active');
+        });
+      }
+    });
+  }
+  window.addEventListener('scroll',onScroll,{passive:true});
+  onScroll();
+})();
+</script>
+</body>
+</html>
